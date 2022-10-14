@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 2.2</title>
+    <style>
+        img {
+            border: 1px solid black;
+            box-sizing: border-box;
+            padding: 0.3em;
+            max-width: 100%;
+            /*display: none;*/
+            /*visibility: hidden;*/
+
+        }
+
+
+        /* TODO: hide picture on unchecked box still left */
+        #hide-show-picture:not(#hide-show-picture:checked) + label {
+            color: red;
+        }
+
+        /*#hide-picture:checked img{
+            visibility: visible;
+
+        }*/
+
+        input#hide-show-picture {
+            height: 25px;
+            width: 25px;
+        }
+        /*h1 {
+            box-sizing: border-box;
+            font-size: 24px;
+            border: 1px solid black;
+            padding: 1em;
+            position: sticky;
+            background-color: rgba(255,255,255,0.85);
+            top: 0;
+            !*margin: 0.5em;*!
+            !*width: calc(100% - 1em);*!
+            !*border: ;*!
+        }*/
+        /*p {
+            background: #ded2d2;
+        }*/
+    </style>
+</head>
+<body>
+<h1>Übung 2.2</h1>
+<div>
+    <form>
+        <input type="checkbox" id="hide-show-picture" name="hide-picture" value="H-BRS" checked>
+        <label for="hide-show-picture">hide and show via checkbox</label>
+    </form>
+    <img src="../pictures/h-brs.jpeg" alt="Hochschule-Bonn-Rhein-Sieg">
+</div>
+
+</body>
+</html>

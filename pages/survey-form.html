@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <!--TODO: Alignment of inputs and labels still left-->
+    <style>
+        input {
+            /*width: 80%;*/
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            /*float: left;*/
+            /*clear: both;*/
+
+        }
+
+        .dropdown {
+            background-color: lightgrey;
+        }
+
+        body {
+            background-color: #b2d6d1;
+            /*border: 2px #b2d6d1;*/
+        }
+
+        #header {
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fafafa;
+            border-radius: 2px;
+            text-align: center;
+            padding: 50px;
+            margin: 10px;
+        }
+
+        .required:before {
+            content: "* ";
+            font-size: 40%;
+            vertical-align: super;
+        }
+
+        .column-1 {
+            text-align: right;
+            float: left;
+            width: 50%;
+            margin-top: 10px;
+        }
+
+        .column-2 {
+            float: left;
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h1 id="header">Survey Form</h1>
+<div class="container">
+    <p>Let us know how we can improve freeCodeCamp</p>
+    <form>
+        <div class="row">
+            <div class="column-1">
+                <label class="required" for="name">Name:</label>
+            </div>
+            <div class="column-2">
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-1">
+                <label class="required" for="email">Email:</label>
+            </div>
+            <div class="column-2">
+                <input type="email" id="email" name="email" placeholder="Enter your Email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-1">
+                <label class="required" for="age">Age:</label>
+            </div>
+            <div class="column-2">
+                <input type="number" id="age" name="age" placeholder="Age" min="18" max="100" step="1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-1">
+                <label for="role">Which option best describes your current role?</label>
+            </div>
+            <div class="column-2">
+                <select class="dropdown" id="role" name="role">
+                    <option value="student">Student</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-1">
+                <p class="required">How likely is that you would recommend freeCodeCamp to a friend?</p>
+<!--                <label class="required" for="recommend">How likely is that you would recommend freeCodeCamp to a friend?</label>-->
+            </div>
+            <div class="column-2">
+                <input type="radio" id="definitely" name="recommend" value="Definitely">
+                <label for="definitely">Definitely</label><br>
+                <input type="radio" id="maybe" name="recommend" value="Maybe">
+                <label for="maybe">Maybe</label><br>
+                <input type="radio" id="notsure" name="recommend" value="Not sure">
+                <label for="notsure">Not sure</label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="column-1">
+                <label for="role">What do you like most in FCC:</label>
+            </div>
+            <div class="column-2">
+                <select class="dropdown" id="favourite" name="favourite">
+                    <option value="select-an-option">Select an option</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-1">
+                <p>Things that should be improve in the future (Check all that apply):</p>
+                <!--                <label class="required" for="recommend">How likely is that you would recommend freeCodeCamp to a friend?</label>-->
+            </div>
+            <div class="column-2">
+                <input type="checkbox" id="front-end-projects" name="front-end-projects" value="Front-end Projects">
+                <label for="front-end-projects">Front-end Projects</label><br>
+                <input type="checkbox" id="back-end-projects" name="back-end-projects" value="Back-end Projects">
+                <label for="back-end-projects">Back-end Projects</label><br>
+                <input type="checkbox" id="data-visualization" name="data-visualization" value="Data Visualization">
+                <label for="data-visualization">Data Visualization</label>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
