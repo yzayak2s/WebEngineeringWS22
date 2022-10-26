@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uebung 3-1 – Responsive mit Flexbox Desktop-First</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 600px) {
+            aside.right {
+                width: 100%;
+                height: 5rem;
+            }
+
+            article {
+                width: 80% !important;
+                border-right: none !important;
+                border-bottom: 3px solid white;
+            }
+
+            aside.left {
+                border-bottom: 3px solid white;
+                border-right: 3px solid white;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            article {
+                width: 100% !important;
+            }
+
+            aside.left, aside.right, nav {
+                /*width: 50%;*/
+                height: 5rem!important;
+            }
+
+            article {
+                height: 40rem!important;
+                order: 2;
+                border-bottom: none;
+            }
+
+            nav {
+                margin-bottom: 0!important;
+            }
+
+            aside.left {
+                width: 100%;
+                border-right: none;
+                border-bottom: none!important;
+                order: 1;
+            }
+
+            aside.right {
+                width: 100%;
+                order: 3;
+            }
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav {
+            background-color: red;
+            width: 100%;
+            height: 10rem;
+            margin-bottom: 10px;
+        }
+
+
+        .left {
+            background-color: #57ee26;
+            border-right: 7px solid white;
+            width: 20%;
+            height: 20rem;
+        }
+
+        article {
+            background-color: #3e33ff;
+            border-right: 7px solid white;
+            width: 60%;
+            height: 20rem;
+        }
+
+        .right {
+            background-color: #ea3eff;
+            width: 20%;
+            height: 20rem;
+        }
+    </style>
+</head>
+<body>
+<nav></nav>
+<aside class="left"></aside>
+<article></article>
+<aside class="right"></aside>
+</body>
+</html>
