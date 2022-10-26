@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas:
+                    "nav"
+                    "aside-left"
+                    "article"
+                    "aside-right";
+            margin: 0;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: red;
+            width: 100%;
+            height: 5rem;
+        }
+
+
+        .left {
+            grid-area: aside-left;
+            background-color: #57ee26;
+            width: 100%;
+            height: 5rem;
+        }
+
+        article {
+            grid-area: article;
+            background-color: #3e33ff;
+            /*border-right: 7px solid white;*/
+            width: 100%;
+            height: 20rem;
+        }
+
+        .right {
+            grid-area: aside-right;
+            background-color: #ea3eff;
+            width: 100%;
+            height: 5rem;
+        }
+
+
+
+        @media screen and (min-width: 300px) {
+            article {
+                /*width: 80% !important;*/
+            }
+
+            body {
+                grid-template-columns: 20% 80%;
+                grid-template-areas:
+                        "nav nav"
+                        "aside-left article"
+                        "aside-right aside-right";
+                margin: 8px;
+            }
+
+            article {
+                height: 20rem;
+                border-bottom: 3px solid white;
+            }
+
+            nav {
+                margin-bottom: 10px;
+            }
+
+            aside.left {
+                height: auto;
+                border-right: 3px solid white;
+                border-bottom: 3px solid white;
+            }
+
+            aside.right {
+                width: 100%;
+            }
+        }
+
+
+
+        @media screen and (min-width: 600px) {
+            body {
+                grid-template-columns: 20% 60% 20%;
+                grid-template-areas:
+                        "nav nav nav"
+                        "aside-left article aside-right";
+                padding: 10px 30px 0px 30px;
+            }
+
+            aside.right {
+                height: auto;
+            }
+
+            article {
+                border-right: 7px solid white;
+                border-bottom: none;
+            }
+
+            aside.left {
+                border-right: 7px solid white;
+                border-bottom: none;
+            }
+        }
+    </style>
+    <title>Uebung 3-2 – Responsive mit Grid Mobile-First</title>
+</head>
+<body>
+<nav></nav>
+<aside class="left"></aside>
+<article></article>
+<aside class="right"></aside>
+</body>
+</html>

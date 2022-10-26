@@ -9,66 +9,16 @@
             box-sizing: border-box;
         }
 
-        @media screen and (max-width: 600px) {
-            aside.right {
-                width: 100%;
-                height: 5rem;
-            }
-
-            article {
-                width: 80% !important;
-                border-right: none !important;
-                border-bottom: 3px solid white;
-            }
-
-            aside.left {
-                border-bottom: 3px solid white;
-                border-right: 3px solid white;
-            }
-        }
-
-        @media screen and (max-width: 300px) {
-            article {
-                width: 100% !important;
-            }
-
-            aside.left, aside.right, nav {
-                /*width: 50%;*/
-                height: 5rem!important;
-            }
-
-            article {
-                height: 40rem!important;
-                order: 2;
-                border-bottom: none;
-            }
-
-            nav {
-                margin-bottom: 0!important;
-            }
-
-            aside.left {
-                width: 100%;
-                border-right: none;
-                border-bottom: none!important;
-                order: 1;
-            }
-
-            aside.right {
-                width: 100%;
-                order: 3;
-            }
-        }
-
         body {
             display: flex;
             flex-wrap: wrap;
+            padding: 10px 30px 0px 30px;
         }
 
         nav {
             background-color: red;
             width: 100%;
-            height: 10rem;
+            height: 7rem;
             margin-bottom: 10px;
         }
 
@@ -92,6 +42,71 @@
             width: 20%;
             height: 20rem;
         }
+
+        @media screen and (max-width: 600px) {
+            nav {
+                height: 7rem;
+            }
+
+            body {
+                padding: 10px;
+                margin: 0px;
+            }
+
+            aside.right {
+                width: 100%;
+                height: 5rem;
+            }
+
+            article {
+                width: 80%;
+                border-right: none;
+                border-bottom: 3px solid white;
+            }
+
+            aside.left {
+                border-bottom: 3px solid white;
+                border-right: 3px solid white;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            article {
+                width: 100% ;
+            }
+
+            body {
+                padding: 0px;
+                margin: 0;
+            }
+
+            aside.left, aside.right, nav {
+                height: 5rem;
+            }
+
+            article {
+                height: 25rem;
+                order: 2;
+                border-bottom: none;
+            }
+
+            nav {
+                margin-bottom: 0;
+            }
+
+            aside.left {
+                width: 100%;
+                border-right: none;
+                border-bottom: none;
+                order: 1;
+            }
+
+            aside.right {
+                width: 100%;
+                order: 3;
+            }
+        }
+
     </style>
 </head>
 <body>
