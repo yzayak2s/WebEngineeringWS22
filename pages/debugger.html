@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugger Demo</title>
+</head>
+<h1 onclick="run()">Debugger Demo</h1>
+<script>
+  function run() {
+    var lorem = `Lorem ipsum dolor sit amet, consetetur sadipscing  elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.`;
+
+    var list = lorem.split(" ");
+
+    var count_words = 0, count_letters = 0;
+
+    list.forEach( function ( word ) {
+      if (word.length === 0) debugger;
+      count_words += 1;
+      count_letters += word.length;
+    })
+
+    console.log(`${count_words} words with ${count_letters} letters in ${lorem.length} size Lorem Text`);
+  }
+</script>
+</html>

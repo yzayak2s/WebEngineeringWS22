@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 4.2 – Fibonacci</title>
+    <style>
+        .functions {
+            color: darkblue;
+        }
+
+        .integers {
+            color: blue;
+        }
+
+        .output {
+            color: teal;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h1>Fibonacci</h1>
+<p>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf.</p>
+<p>Rufen Sie anschließend die Methode <code><span class="functions">fibonacci</span>(<span
+        class="integers">parameter</span>)</code> auf, wobei der Parameter ein ganzzahliger Wert größer gleich 0 ist.</p>
+<ul>
+    <li><b>Beispiel:</b></li>
+    <li><span class="functions">fibonacci</span>(<span class="integers">3</span>)</li>
+    <li><b>Ausgabe:</b></li>
+    <li><span class="output">0, 1, 1, 2</span></li>
+</ul>
+<script>
+    /**
+     * Aufgabenstellung siehe oben!
+     */
+    // TODO: Header and footer needs to be fixed in general.
+    /*function fibonacciHelp(parameter) {
+        if (parameter < 2) {
+            return parameter;
+        }
+        let a = 1n;
+        let b = 1n;
+        // TODO: Berechnung sollte nur einmal durchgeführt werden.
+        for (let i = 2; i <= parameter; ++i) {
+            let tmp = a + b;
+            a = b;
+            b = tmp;
+        }
+        return b;
+    }*/
+
+    function fibonacciRekHelpBigInt(a, b, i, n) {
+        return BigInt(i) === BigInt(n) ? BigInt(b) : fibonacciRekHelpBigInt(BigInt(b), BigInt(a) + BigInt(b), BigInt(i) + BigInt(1), BigInt(n));
+    }
+
+    function fibonacciRekBigInt(n) {
+        return BigInt(n) < BigInt(2) ? BigInt(n) : fibonacciRekHelpBigInt(BigInt(1), BigInt(1), BigInt(2), BigInt(n));
+    }
+
+    function fibonacciRekHelp(a, b, i, n) {
+        return i === n ? b : fibonacciRekHelp(b, a + b, i + 1, n);
+    }
+
+    function fibonacciRek(n) {
+        return n < 2 ? n : fibonacciRekHelp(1, 1, 2, n);
+    }
+
+    function fibonacciBigInt(parameter) {
+        for (let i = 0; i <= parameter; ++i) {
+            console.log(fibonacciRekBigInt(i));
+        }
+    }
+
+    function fibonacci(parameter) {
+        for (let i = 0; i <= parameter; ++i) {
+            console.log(fibonacciRek(i));
+        }
+    }
+
+</script>
+<div>
+    <table id="mytable">
+        <caption>
+            <b>Fibonacci-Zahlen</b>
+            <hr>
+        </caption>
+        <tr>
+            <th>Index</th>
+            <th>n-te Zahl</th>
+            <th>Fibonacci-Zahl</th>
+        </tr>
+        <tr>
+            <script>
+                const table = document.getElementById('mytable');
+                const xInteger = Number.MAX_SAFE_INTEGER;
+                const xNumber = Number.MAX_VALUE;
+                const xBigInt = BigInt(2) ** (BigInt(64) - BigInt(1)) - BigInt(1);
+                console.log(xBigInt)
+                // const y = Number.MAX_SAFE_INTEGER + 2;
+                console.log(xInteger)
+                console.log(xNumber)
+                console.log(xBigInt)
+                /*console.log(y)
+                console.log(x === y)*/
+                console.log(typeof xInteger)
+                console.log(typeof xNumber)
+                console.log(typeof xBigInt)
+
+                for(let i = 0; i < 6096 ; i++) {
+                    const tr = document.createElement('tr');
+
+                    const tData1 = document.createElement('td');
+                    const tData3 = document.createElement('td');
+                    const tData2 = document.createElement('td');
+
+                    const tDataValue1 = document.createTextNode(i.toString());
+                    const tDataValue3 = document.createTextNode((i+1).toString());
+                    const tDataValue2 = document.createTextNode(fibonacciRekBigInt(BigInt(i)));
+
+                    if (fibonacciRek(i) < xInteger && fibonacciRek(i + 1) > xInteger) {
+                        console.log('Highest fibonacci number that is representable in integer: ' + (i + 1))
+                        tr.setAttribute('style',"background-color:red" )
+                    }
+                    if (fibonacciRek(i) < xNumber && fibonacciRek(i + 1) > xNumber) {
+                        console.log('Highest fibonacci number that is representable in Number: ' + (i + 1))
+                        tr.setAttribute('style',"background-color:red" )
+                    }
+
+                    tData1.appendChild(tDataValue1);
+                    tData3.appendChild(tDataValue3);
+                    tData2.appendChild(tDataValue2);
+
+                    tr.appendChild(tData1);
+                    tr.appendChild(tData3);
+                    tr.appendChild(tData2);
+
+                    table.appendChild(tr);
+                }
+            </script>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

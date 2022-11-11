@@ -2,43 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Survey Form</title>
-    <!--TODO: Alignment of inputs and labels still left-->
+    <title>Übung 2.3 – Wireframe mit HTML und CSS</title>
     <style>
         input {
-            /*width: 80%;*/
             padding: 6px;
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: vertical;
-            /*float: left;*/
-            /*clear: both;*/
 
         }
 
         .dropdown {
-            background-color: lightgrey;
+            background-color: #f0f0f0;
+            width: 130px;
+            padding: 6px;
+            border-radius: 2px;
+            border: 1px solid #ccc;
         }
 
         body {
-            background-color: #b2d6d1;
-            /*border: 2px #b2d6d1;*/
+            background-color: #a9d7d1;
+            text-align: center;
         }
 
-        #header {
-            text-align: center;
+        #name,
+        #email,
+        #age {
+            width: 70%;
+        }
+
+        #label-name,
+        #label-email,
+        #label-age {
+            margin-top: 14px;
+        }
+
+        #radios, #checkboxes {
+            margin-top: 25px;
         }
 
         .container {
             background-color: #fafafa;
             border-radius: 2px;
-            text-align: center;
-            padding: 50px;
-            margin: 10px;
+            padding: 10px 45px 10px 45px;
+            margin: 20px;
         }
 
         .required:before {
-            content: "* ";
+            content: "* \00a0";
             font-size: 40%;
             vertical-align: super;
         }
@@ -46,14 +57,16 @@
         .column-1 {
             text-align: right;
             float: left;
-            width: 50%;
+            width: 48%;
             margin-top: 10px;
+            padding-right: 2%;
         }
 
         .column-2 {
             float: left;
-            width: 300px;
+            width: 50%;
             margin-top: 10px;
+            text-align: left;
         }
 
         /* Clear floats after the columns */
@@ -61,16 +74,17 @@
             content: "";
             display: table;
             clear: both;
+            padding: 7px;
         }
     </style>
 </head>
 <body>
-<h1 id="header">Survey Form</h1>
+<h1>Survey Form</h1>
 <div class="container">
     <p>Let us know how we can improve freeCodeCamp</p>
     <form>
         <div class="row">
-            <div class="column-1">
+            <div  id="label-name" class="column-1">
                 <label class="required" for="name">Name:</label>
             </div>
             <div class="column-2">
@@ -78,7 +92,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="column-1">
+            <div id="label-email" class="column-1">
                 <label class="required" for="email">Email:</label>
             </div>
             <div class="column-2">
@@ -86,7 +100,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="column-1">
+            <div id="label-age" class="column-1">
                 <label class="required" for="age">Age:</label>
             </div>
             <div class="column-2">
@@ -108,7 +122,7 @@
                 <p class="required">How likely is that you would recommend freeCodeCamp to a friend?</p>
 <!--                <label class="required" for="recommend">How likely is that you would recommend freeCodeCamp to a friend?</label>-->
             </div>
-            <div class="column-2">
+            <div class="column-2" id="radios">
                 <input type="radio" id="definitely" name="recommend" value="Definitely">
                 <label for="definitely">Definitely</label><br>
                 <input type="radio" id="maybe" name="recommend" value="Maybe">
@@ -133,7 +147,7 @@
                 <p>Things that should be improve in the future (Check all that apply):</p>
                 <!--                <label class="required" for="recommend">How likely is that you would recommend freeCodeCamp to a friend?</label>-->
             </div>
-            <div class="column-2">
+            <div class="column-2" id="checkboxes">
                 <input type="checkbox" id="front-end-projects" name="front-end-projects" value="Front-end Projects">
                 <label for="front-end-projects">Front-end Projects</label><br>
                 <input type="checkbox" id="back-end-projects" name="back-end-projects" value="Back-end Projects">

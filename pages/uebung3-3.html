@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-template-rows: 1fr 1fr 65% 2fr;
+        grid-template-areas:
+                "header header"
+                "h1 h1"
+                "img article"
+                "footer footer";
+        background-color: #ebeae5;
+        margin: 0;
+        text-align: center;
+    }
+
+    header {
+        grid-area: header;
+        background-color: #363636;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    header nav {
+        flex-grow: 1;
+
+    }
+
+    nav,
+    #p-footer {
+        color: #ebeae5;
+    }
+
+    #p-footer {
+        margin: 0;
+    }
+
+    li {
+        padding: 1rem;
+    }
+
+    li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    ul{
+        list-style: none;
+        display: flex;
+    }
+
+    h1 {
+        grid-area: h1;
+        text-align: center;
+    }
+
+    img {
+        height: auto;
+        width: 300px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .image-div {
+        grid-area: img;
+    }
+
+    button {
+        background-color: #f18e38;
+        border: none;
+        padding: 6px;
+        color: white;
+        border-radius: 4px;
+        width: 50%;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    article {
+        grid-area: article;
+    }
+
+    p {
+        padding: 1rem;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: #061927;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 3.3 – Responsiv mit Grid</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>The book series</li>
+            <li>Testimonials</li>
+            <li>The Author</li>
+            <li>Free resources</li>
+        </ul>
+    </nav>
+</header>
+<h1>You dont know JavaScript</h1>
+<div class="image-div">
+    <img src="../pictures/landing-img.png" alt="You dont know JavaScript">
+</div>
+<article>
+    <p>Don't just drift through Javascript.</p>
+    <p>Understand how Javascript works</p>
+    <p>Start your journey through the bumpy side of Javascript</p>
+    <button type="button">ORDER YOUR COPY NOW</button>
+</article>
+<footer>
+    <p id="p-footer">The first ebook in the book series is absolutely free.</p>
+    <button type="button">FIND OUT MORE ABOUT THIS OFFER</button>
+</footer>
+</body>
+</html>

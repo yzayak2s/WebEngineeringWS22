@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 4.1 – Funktionen</title>
+    <style>
+        .functions {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+<h1>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf</h1>
+<p>Öffnen Sie die DevTools-Konsole und geben folgende Funktionen ein:</p>
+<ul>
+    <li><b>Beispiel 1:</b><br> <code><span class="functions">identity</span>(<span style="color:blue;">4</span>)</code></li>
+    <br>
+    <li><b>Beispiel 2:</b><br> <code><span class="functions">identity</span>(<span style="color:green;">"Hallo"</span>)</code></li>
+    <br>
+    <li><code><span class="functions">identity</span>(parameter)</code></li>
+    <li><code><span class="functions">identity_function</span>(parameter)</code></li>
+    <li><code><span class="functions">add</span>(parameter, parameter)</code></li>
+    <li><code><span class="functions">mul</span>(parameter, parameter)</code></li>
+</ul>
+<script>
+    /**
+     * nimmt ein Argument als Parameter an und gibt dieses als Ergebnis zurück.
+     */
+    function identity(argument) {
+        // console.log("String");
+        return argument;
+    }
+
+    /**
+     * nimmt ein Argument als Parameter an und gibt eine Funktion
+     * (hier identity_function()) zurück, die dieses Argument zurückgibt.
+     * @param argument
+     * @return {*}
+     */
+    function identity_function(argument) {
+        return identity(argument);
+    }
+
+    /**
+     * binäre Funktion 'add(a, b)' nimmt 2 Argumente a und b an und
+     * gibt die Summe der beiden zurück.
+     * @param a
+     * @param b
+     * @returns {*}
+     */
+    function add(a, b) {
+        return a + b;
+    }
+
+    /**
+     * binäre Funktion 'mul(a, b)' nimmt 2 Argumente a und b an und
+     * gibt das Produkt der beiden zurück.
+     * @param a
+     * @param b
+     * @return {number}
+     */
+    function mul(a, b) {
+        return a * b;
+    }
+
+    /**
+     * Addier-Funktion 'addf()', so dass addf(x)(y) genau x + y
+     * zurück gibt. (Es haben also 2 Funktionsaufrufe zu erfolgen.
+     * addf(x) liefert eine Funktion, die auf y angewandt wird.)
+     */
+    function addf(x,y) {
+        return add(x,y);
+    }
+
+    /**
+     * Apply-Funktion 'applyf()' berechnet aus einer Funktion
+     * wie add(x,y) eine Funktion addf, die mit zwei Aufrufen
+     * das gleiche Ergebnis liefert, z.B. addf = applyf(add);
+     * addf(x)(y) soll add(x,y) liefern.
+     * Entsprechend applyf(mul)(5)(6) soll 30 liefern, wenn
+     * mul die binäre Multiplikation ist.
+     */
+    function applyf() {
+
+    }
+
+</script>
+</body>
+</html>
