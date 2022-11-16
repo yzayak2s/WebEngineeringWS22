@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live-Coding: JS und DOM - Galerie</title>
+    <script src="script.js defer"></script>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 1rem;
+        }
+
+        #rating {
+            font-size: large;
+        }
+
+        #rating i {
+            color: #fc0;
+        }
+
+        .card > i {
+            font-size: xxx-large;
+        }
+
+        .card {
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: black;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Galerie</h1>
+<div id="items"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Item hinzufügen</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Titel</label>
+                        <input type="text" class="form-control" id="title" required placeholder="Titel des Items">
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Example textarea</label>
+                        <input type="file" required class="form-control" id="img">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="form" class="btn btn-primary">Abschicken</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

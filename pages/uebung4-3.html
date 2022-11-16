@@ -26,13 +26,35 @@
 <h1>Fibonacci</h1>
 <p>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf.</p>
 <p>Rufen Sie anschließend die Methode <code><span class="functions">fibonacci</span>(<span
-        class="integers">parameter</span>)</code> auf, wobei der Parameter ein ganzzahliger Wert größer gleich 0 ist.</p>
-<ul>
-    <li><b>Beispiel:</b></li>
-    <li><span class="functions">fibonacci</span>(<span class="integers">3</span>)</li>
-    <li><b>Ausgabe:</b></li>
-    <li><span class="output">0, 1, 1, 2</span></li>
-</ul>
+        class="integers">parameter</span>)</code> auf, wobei der Parameter ein ganzzahliger Wert größer gleich 0 ist.
+</p>
+<table>
+    <tr>
+        <th>Eingabe</th>
+        <th>Ausgabe</th>
+    </tr>
+    <tr>
+        <td><span class="functions">fibonacci</span>(<span class="integers">3</span>)</td>
+        <td><span class="output">0, 1, 1, 2</span></td>
+    </tr>
+    <tr>
+        <td><span class="functions">fibonacciInArray</span>(<span class="integers">3</span>)</td>
+        <td><span class="output">[&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;…]</span></td>
+    </tr>
+    <tr>
+        <td><span class="functions">fibonacci</span>(<span class="integers">78</span>)</td>
+        <td><span class="output">0, 1, 1, 2,…, 8944…</span></td>
+    </tr>
+    <tr>
+        <td><span class="functions">fibonacci</span>(<span class="integers">1476</span>)</td>
+        <td><span class="output">0, 1, 1, 2,…, 1.3069…e+308</span></td>
+    </tr>
+    <tr>
+        <td><span class="functions">fibonacciBigInt</span>(<span class="integers">6096</span>)</td>
+        <td><span class="output">43568…n</span></td>
+    </tr>
+</table>
+<hr>
 <script>
     /**
      * Aufgabenstellung siehe oben!
@@ -54,7 +76,16 @@
     }*/
 
     function fibonacciRekHelpBigInt(a, b, i, n) {
-        return BigInt(i) === BigInt(n) ? BigInt(b) : fibonacciRekHelpBigInt(BigInt(b), BigInt(a) + BigInt(b), BigInt(i) + BigInt(1), BigInt(n));
+        try {
+            return BigInt(i) === BigInt(n) ? BigInt(b) : fibonacciRekHelpBigInt(BigInt(b), BigInt(a) + BigInt(b), BigInt(i) + BigInt(1), BigInt(n));
+        } catch (error) {
+            if (error instanceof RangeError) {
+                // console.log("Error", error.stack)
+                console.log("Error", error.name)
+                console.log("Error", error.message)
+                console.log('Highest fibonacci number that is representable in bigint: ' + (i + 1))
+            }
+        }
     }
 
     function fibonacciRekBigInt(n) {
@@ -76,9 +107,45 @@
     }
 
     function fibonacci(parameter) {
+        const xInteger = Number.MAX_SAFE_INTEGER;
+        const xNumber = Number.MAX_VALUE;
         for (let i = 0; i <= parameter; ++i) {
             console.log(fibonacciRek(i));
+            if (fibonacciRek(i) < xInteger && fibonacciRek(i + 1) > xInteger) {
+                console.log('Highest fibonacci number that is representable in integer: ' + (i + 1))
+            }
+            if (fibonacciRek(i) < xNumber && fibonacciRek(i + 1) > xNumber) {
+                console.log('Highest fibonacci number that is representable in number: ' + (i + 1))
+            }
         }
+    }
+
+    function fibonacciInArray(parameter) {
+        const arrayFib = [];
+        for (let i = 0; i <= parameter; ++i) {
+            arrayFib.push(
+                '<tr>' +
+                '<td>' + i + '</td>' +
+                '<td>' + (i + 1) + '</td>' +
+                '<td>' + fibonacciRek(i) + '</td>' +
+                '</tr>'
+            );
+        }
+        return arrayFib;
+    }
+
+    function fibonacciInArrayWithBigInt(parameter) {
+        const arrayFib = [];
+        for (let i = 0; i <= parameter; ++i) {
+            arrayFib.push(
+                '<tr>' +
+                '<td>' + i + '</td>' +
+                '<td>' + (i + 1) + '</td>' +
+                '<td>' + fibonacciRekBigInt(BigInt(i)) + '</td>' +
+                '</tr>'
+            );
+        }
+        return arrayFib;
     }
 
 </script>
@@ -93,55 +160,53 @@
             <th>n-te Zahl</th>
             <th>Fibonacci-Zahl</th>
         </tr>
-        <tr>
-            <script>
-                const table = document.getElementById('mytable');
-                const xInteger = Number.MAX_SAFE_INTEGER;
-                const xNumber = Number.MAX_VALUE;
-                const xBigInt = BigInt(2) ** (BigInt(64) - BigInt(1)) - BigInt(1);
-                console.log(xBigInt)
-                // const y = Number.MAX_SAFE_INTEGER + 2;
-                console.log(xInteger)
-                console.log(xNumber)
-                console.log(xBigInt)
-                /*console.log(y)
-                console.log(x === y)*/
-                console.log(typeof xInteger)
-                console.log(typeof xNumber)
-                console.log(typeof xBigInt)
+        <!--<script>
+            const table = document.getElementById('mytable');
+            const xInteger = Number.MAX_SAFE_INTEGER;
+            const xNumber = Number.MAX_VALUE;
+            const xBigInt = BigInt(2) ** (BigInt(64) - BigInt(1)) - BigInt(1);
+            console.log(xBigInt)
+            // const y = Number.MAX_SAFE_INTEGER + 2;
+            console.log(xInteger)
+            console.log(xNumber)
+            console.log(xBigInt)
+            /*console.log(y)
+            console.log(x === y)*/
+            console.log(typeof xInteger)
+            console.log(typeof xNumber)
+            console.log(typeof xBigInt)
 
-                for(let i = 0; i < 6096 ; i++) {
-                    const tr = document.createElement('tr');
+            for(let i = 0; i < 6098 ; i++) {
+                const tr = document.createElement('tr');
 
-                    const tData1 = document.createElement('td');
-                    const tData3 = document.createElement('td');
-                    const tData2 = document.createElement('td');
+                const tData1 = document.createElement('td');
+                const tData3 = document.createElement('td');
+                const tData2 = document.createElement('td');
 
-                    const tDataValue1 = document.createTextNode(i.toString());
-                    const tDataValue3 = document.createTextNode((i+1).toString());
-                    const tDataValue2 = document.createTextNode(fibonacciRekBigInt(BigInt(i)));
+                const tDataValue1 = document.createTextNode(i.toString());
+                const tDataValue3 = document.createTextNode((i+1).toString());
+                const tDataValue2 = document.createTextNode(fibonacciRekBigInt(BigInt(i)));
 
-                    if (fibonacciRek(i) < xInteger && fibonacciRek(i + 1) > xInteger) {
-                        console.log('Highest fibonacci number that is representable in integer: ' + (i + 1))
-                        tr.setAttribute('style',"background-color:red" )
-                    }
-                    if (fibonacciRek(i) < xNumber && fibonacciRek(i + 1) > xNumber) {
-                        console.log('Highest fibonacci number that is representable in Number: ' + (i + 1))
-                        tr.setAttribute('style',"background-color:red" )
-                    }
-
-                    tData1.appendChild(tDataValue1);
-                    tData3.appendChild(tDataValue3);
-                    tData2.appendChild(tDataValue2);
-
-                    tr.appendChild(tData1);
-                    tr.appendChild(tData3);
-                    tr.appendChild(tData2);
-
-                    table.appendChild(tr);
+                if (fibonacciRek(i) < xInteger && fibonacciRek(i + 1) > xInteger) {
+                    console.log('Highest fibonacci number that is representable in integer: ' + (i + 1))
+                    tr.setAttribute('style',"background-color:red" )
                 }
-            </script>
-        </tr>
+                if (fibonacciRek(i) < xNumber && fibonacciRek(i + 1) > xNumber) {
+                    console.log('Highest fibonacci number that is representable in Number: ' + (i + 1))
+                    tr.setAttribute('style',"background-color:red" )
+                }
+
+                tData1.appendChild(tDataValue1);
+                tData3.appendChild(tDataValue3);
+                tData2.appendChild(tDataValue2);
+
+                tr.appendChild(tData1);
+                tr.appendChild(tData3);
+                tr.appendChild(tData2);
+
+                table.appendChild(tr);
+            }
+        </script>-->
     </table>
 </div>
 </body>
