@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 4.2 – Objekte</title>
+</head>
+<body>
+<h1>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf</h1>
+<p>Öffnen Sie die DevTools-Konsole und geben folgende Funktionen ein:</p>
+<p>Schreiben Sie die Prototypen Person und Auto in JavaScript, so dass jede Person weiß, welche Autos sie besitzt.
+    Schreiben Sie eine Funktion <code>conflict()</code>, die feststellt, ob ein Auto von mehr als einer Person besessen
+    wird</p>
+<ul>
+    <li><code><span style="color:darkblue">conflict</span>()</code></li>
+</ul>
+<script>
+    /**
+     * Aufgabenstellung siehe oben!
+     */
+    const Person = {
+        name: '',
+        cars: [],
+        ownCar: function(car) {
+            this.cars.push(car);
+            car.assignToOwner(this)
+        },
+        toString: function() {
+            return (
+                'Person ' + this.name + ' hat ' +
+                this.cars.length + ' Auto' + (this.cars.length === 1 ? '' : 's') + ': ' + this.cars.map((value) => Object.values(value))
+            );
+        }
+    }
+
+    const Auto = {
+        brand: '',
+        persons: [],
+        assignToOwner: function(person) {
+            this.persons.push(person);
+        },
+        toString: function() {
+            return (
+                'Auto ' + this.brand + ' hat ' +
+                this.persons.length + ' Besitzer: ' + this.persons.map((value) => Object.values(value))
+            );
+        }
+    }
+
+    const auto1 = {
+        __proto__: Auto,
+        brand: 'Mercedes',
+        persons: []
+    }
+
+    const auto2 = {
+        __proto__: Auto,
+        brand: 'VW',
+        persons: []
+    }
+
+    const auto3 = {
+        __proto__: Auto,
+        brand: 'Volvo',
+        persons: []
+    }
+
+    const person1 = {
+        __proto__: Person,
+        name: 'Hans',
+        cars: []
+    }
+
+    const person2 = {
+        __proto__: Person,
+        name: 'Peter',
+        cars: []
+    }
+
+    const person3 = {
+        __proto__: Person,
+        name: 'Klaus',
+        cars: []
+    }
+
+    function conflict(x, y) {
+        return
+    }
+
+    /**
+     * nimmt ein Argument als Parameter an und gibt eine Funktion
+     * (hier identity_function()) zurück, die dieses Argument zurückgibt.
+     * @param argument
+     * @return {*}
+     */
+    function identity_function(argument) {
+        return identity(argument);
+    }
+
+    function test1() {
+        return
+        {
+            problem: 'ERROR'
+        }
+    }
+
+    function test2() {
+        return {
+            problem: 'ERROR'
+        }
+    }
+
+</script>
+</body>
+</html>
