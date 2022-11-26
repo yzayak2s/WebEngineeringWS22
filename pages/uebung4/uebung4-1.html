@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf</h1>
-<p>Öffnen Sie die DevTools-Konsole und geben folgende Funktionen ein:</p>
+<p>Öffnen Sie die DevTools-Konsole und geben Sie folgende Funktionen ein:</p>
 <ul>
     <li><b>Beispiel 1:</b><br> <code><span class="functions">identity</span>(<span style="color:blue;">4</span>)</code></li>
     <br>
@@ -33,7 +33,7 @@
 
     /**
      * nimmt ein Argument als Parameter an und gibt eine Funktion
-     * (hier identity_function()) zurück, die dieses Argument zurückgibt.
+     * (hier identity()) zurück, die dieses Argument zurückgibt.
      * @param argument
      * @return {*}
      */
@@ -68,8 +68,10 @@
      * zurück gibt. (Es haben also 2 Funktionsaufrufe zu erfolgen.
      * addf(x) liefert eine Funktion, die auf y angewandt wird.)
      */
-    function addf(x,y) {
-        return add(x,y);
+    function addf(x) {
+        return function(y){
+            return x + y;
+        };
     }
 
     /**
@@ -80,8 +82,12 @@
      * Entsprechend applyf(mul)(5)(6) soll 30 liefern, wenn
      * mul die binäre Multiplikation ist.
      */
-    function applyf() {
-
+    function applyf(operation) {
+        return function(x) {
+            return function(y) {
+                return operation(x,y);
+            }
+        }
     }
 
 </script>
