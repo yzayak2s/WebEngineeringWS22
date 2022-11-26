@@ -3,150 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Solution-Navigator</title>
-    <style>
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-            margin: 0;
-            font-size: 150%;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 72% 1fr;
-            grid-template-areas:
-                    "header header header"
-                    "div div div"
-                    "footer footer footer";
-            text-align: center;
-        }
-
-        header {
-            grid-area: header;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            background-color: rgba(0,0,0,0.2);
-            border-bottom: 1px solid black;
-        }
-
-        header nav {
-            flex-grow: 1;
-        }
-
-        img {
-            width: 150px;
-            /*padding: 5px;*/
-        }
-
-        header a,
-        footer a {
-            padding: 1rem;
-        }
-
-        a:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
-
-        .dropdown .dropbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: black;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-
-        .navbar {
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: left;
-            font-size: 16px;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color: lightgrey;
-            border-radius: 7px;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        header ul,
-        footer ul {
-            padding: 1em;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        li:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        div {
-            grid-area: div;
-        }
-
-        header li,
-        footer li {
-            padding: 1rem;
-        }
-
-        footer {
-            grid-area: footer;
-            position: initial;
-            background-color: gray;
-            bottom: 0;
-            border-top: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 <header>
@@ -160,17 +17,17 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="pages/uebung1-4.html">1.4 HTML Wireframe</a>
-                    <a href="pages/uebung2-2-a.html">2.2 a Dynamisches Verhalten</a>
-                    <a href="pages/uebung2-2-b.html">2.2 b Dynamisches Verhalten</a>
-                    <a href="pages/uebung2-3.html">2.3 Wireframe mit HTML und CSS</a>
-                    <a href="pages/uebung3-1.html">3.1 RWD (Desktop-First)</a>
-                    <a href="pages/uebung3-2.html">3.2 RWD (Mobile-First)</a>
-                    <a href="pages/uebung3-3.html">3.3 Responsiv mit Grid</a>
-                    <a href="pages/uebung4-1.html">4.1 Funktionen</a>
-                    <a href="pages/uebung4-2.html">4.2 Objekte</a>
-                    <a href="pages/uebung4-3.html">4.3 Fibonacci</a>
-                    <a href="pages/uebung4-4.html">4.4 Topsort</a>
+                    <a href="pages/uebung1/uebung1-4.html">1.4 HTML Wireframe</a>
+                    <a href="pages/uebung2/uebung2-2-a.html">2.2 a Dynamisches Verhalten</a>
+                    <a href="pages/uebung2/uebung2-2-b.html">2.2 b Dynamisches Verhalten</a>
+                    <a href="pages/uebung2/uebung2-3.html">2.3 Wireframe mit HTML und CSS</a>
+                    <a href="pages/uebung3/uebung3-1.html">3.1 RWD (Desktop-First)</a>
+                    <a href="pages/uebung3/uebung3-2.html">3.2 RWD (Mobile-First)</a>
+                    <a href="pages/uebung3/uebung3-3.html">3.3 Responsiv mit Grid</a>
+                    <a href="pages/uebung4/uebung4-1.html">4.1 Funktionen</a>
+                    <a href="pages/uebung4/uebung4-2.html">4.2 Objekte</a>
+                    <a href="pages/uebung4/uebung4-3.html">4.3 Fibonacci</a>
+                    <a href="pages/uebung4/uebung4-4.html">4.4 Topsort</a>
                     <a href="#">4</a>
                 </div>
             </div>
