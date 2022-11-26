@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 5.2 – Rednerliste mit Zeitmessung</title>
+    <style>
+        #redner {
+            border: 1px solid #cecbcb;
+            border-radius: 0;
+        }
+
+        #submit {
+            background-color: #ffff;
+            border: 1.5px solid #cecbcb;
+        }
+    </style>
+</head>
+<body>
+<h1>Rednerliste</h1>
+<div>
+    <form>
+        <label for="redner">Neuer Redner: <input type="text" id="redner"></label>
+        <input type="submit" id="submit" value="Hinzufügen">
+    </form>
+    <ul id="rednerList"></ul>
+</div>
+<script>
+    // Not good practice
+    // var button = document.getElementsByTagName("button")
+
+    var button = document.getElementById("submit")
+    button.addEventListener('click', buttonClick)
+
+    var input = document.getElementById("redner")
+    input.addEventListener('keypress', enterClick)
+
+    function buttonClick(event) {
+        event.preventDefault()
+
+        var newLi = document.createElement('li')
+        var submittedRedner = document.getElementById('redner').value
+        var enteredRedner = document.createTextNode(submittedRedner)
+
+        newLi.appendChild(enteredRedner)
+        document.getElementById('rednerList').appendChild(newLi)
+
+        document.getElementById('redner').value = ''
+    }
+
+    function enterClick(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+
+            var newLi = document.createElement('li')
+            var enteredRedner = document.createTextNode(event.target.value)
+
+            newLi.appendChild(enteredRedner)
+            document.getElementById('rednerList').appendChild(newLi)
+
+            event.target.value = ''
+        }
+    }
+</script>
+<hr>
+</body>
+</html>
