@@ -38,10 +38,17 @@
         event.preventDefault()
 
         var newLi = document.createElement('li')
+        var newStartButton = document.createElement('button')
+        var newStopButton = document.createElement('button')
+
+        newStartButton.setAttribute('id', "startButton")
+        newStartButton.innerText = 'Start!'
+
         var submittedRedner = document.getElementById('redner').value
         var enteredRedner = document.createTextNode(submittedRedner)
 
         newLi.appendChild(enteredRedner)
+        newLi.appendChild(newStartButton)
         document.getElementById('rednerList').appendChild(newLi)
 
         document.getElementById('redner').value = ''
@@ -52,9 +59,14 @@
             event.preventDefault();
 
             var newLi = document.createElement('li')
+            var newStartButton = document.createElement('button')
+            var newStopButton = document.createElement('button')
+
+            newStartButton.innerText = 'Start!'
             var enteredRedner = document.createTextNode(event.target.value)
 
             newLi.appendChild(enteredRedner)
+            newLi.appendChild(newStartButton)
             document.getElementById('rednerList').appendChild(newLi)
 
             event.target.value = ''
