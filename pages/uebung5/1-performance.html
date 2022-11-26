@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 5.1 – Performanz-Messungen von DOM-Operationen</title>
+    <style>
+        .functions {
+            color: darkblue;
+        }
+
+        .integers {
+            color: blue;
+        }
+
+        .output {
+            color: teal;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h1>Performanz-Messungen von DOM-Operationen</h1>
+<table>
+    <tr>
+        <th>Startzeit</th>
+        <th>Laufzeit</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<hr>
+
+<script>
+    // Messung fuer innerHTML
+    let startTime = performance.now();
+
+    document.getElementsByTagName('td')[0].innerHTML = startTime
+
+    document.getElementsByTagName('td')[1].innerHTML = performance.now() - startTime;
+
+    // Messung fuer innerText
+    startTime = performance.now();
+
+    document.getElementsByTagName('td')[2].innerText = startTime
+
+    document.getElementsByTagName('td')[3].innerText = performance.now() - startTime;
+
+    // Messung fuer textContent
+    startTime = performance.now();
+
+    document.getElementsByTagName('td')[4].textContent = startTime
+
+    document.getElementsByTagName('td')[5].textContent = performance.now() - startTime;
+
+    // Messung fuer outerHTML
+    startTime = performance.now();
+
+    document.getElementsByTagName('td')[6].outerHTML = `<td>${startTime}</td>`
+
+    document.getElementsByTagName('td')[7].outerHTML = `<td>${performance.now() - startTime}</td>`;
+    // console.log(document.getElementsByTagName('td')[7].outerHTML)
+</script>
+
+</body>
+</html>
