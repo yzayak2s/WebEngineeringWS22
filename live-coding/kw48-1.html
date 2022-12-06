@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live-Coding: Async</title>
+</head>
+<body>
+<script>
+    const url = 'https://ccm2.inf.h-brs.de';
+    const data = {get: {}, store: 'crud'}
+    //create(url)
+    read(url)
+
+    function requestByXMLHttpRequest() {
+        // Klassischer Weg bzw. uralter Weg
+        const request = new XMLHttpRequest();
+        request.onload = function () {
+            const data = JSON.parse(this.responseText);
+            console.log(data)
+        };
+        request.onerror = err => {
+            console.log('Fetch Error: ', err);
+        };
+        request.open('post', url, true);
+        request.setRequestHeader('Content-type', 'application/json');
+        request.send(JSON.stringify(data)); // store: 'we_ws22'
+    }
+
+    /*function create(url) {
+        fetch(url, {
+            method: 'post',
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then((result) => console.log(result));
+    }*/
+
+    function read(url) {
+        fetch(url, {
+            method: 'post',
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then((result) => console.log(result));
+    }
+</script>
+</body>
+</html>
