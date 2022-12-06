@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live-Coding: Dynamischer Content</title>
+    <script src="templates.js" type="module"></script>
+</head>
+<body>
+<main>
+    <nav>
+        <ul>
+            <li id="a1">
+                <label>A</label>
+            </li>
+            <li id="a2">
+                <label>B</label>
+            </li>
+            <li id="a3">
+                <label>C</label>
+            </li>
+        </ul>
+    </nav>
+    <div id="content"></div>
+    <aside>Werbung</aside>
+</main>
+<script>
+    const html = {
+        article: content => { return `<h1>${content}</h1>` }
+    }
+    const json = ['Hallo Welt!', 'foo', 'bar'];
+
+    document.body.innerHTML = header('img/logo.png');
+    document.querySelectorAll('main li').forEach((li, i) => {
+        li.addEventListener('click', () => {
+            document.querySelector('#content').innerHTML = json[i];
+        });
+    });
+</script>
+</body>
+</html>
