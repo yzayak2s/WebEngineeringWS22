@@ -37,27 +37,47 @@
 
     function buttonClick(event) {
         event.preventDefault()
+        if (document.getElementById('redner').value === '') {
+            return;
+        }
 
         var newLi = document.createElement('li')
         var newStartButton = document.createElement('button')
         var newStopButton = document.createElement('button')
+        //var newParaSeconds = document.createElement('p');
 
-        newStartButton.setAttribute('id', "startButton")
+        newStartButton.setAttribute('class', "startBtns")
+        newStopButton.setAttribute('class', "stopBtns")
         newStartButton.innerText = 'Start!'
+        newStopButton.innerText = 'Stop!'
+        //newParaSeconds.textContent = '00'
+        //setInterval(setTime, 1000)
 
         var submittedRedner = document.getElementById('redner').value
-        var enteredRedner = document.createTextNode(submittedRedner)
+        var enteredRedner = document.createTextNode(submittedRedner + ' ')
+
+        var hours = document.createTextNode('00:');
+        var minutes = document.createTextNode('00:');
+        var seconds = document.createTextNode('00');
 
         newLi.appendChild(enteredRedner)
+        newLi.appendChild(hours)
+        newLi.appendChild(minutes)
+        newLi.appendChild(seconds)
         newLi.appendChild(newStartButton)
+        newLi.appendChild(newStopButton)
         document.getElementById('rednerList').appendChild(newLi)
 
+        // reset input
         document.getElementById('redner').value = ''
     }
 
     function enterClick(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
+            if (event.target.value === '') {
+                return;
+            }
 
             var newLi = document.createElement('li')
             var newStartButton = document.createElement('button')
@@ -70,9 +90,59 @@
             newLi.appendChild(newStartButton)
             document.getElementById('rednerList').appendChild(newLi)
 
+            // reset input
             event.target.value = ''
         }
     }
+
+    function setTime() {
+        document.getElementsByTagName()
+    }
+
+    let id;
+    const speakers = [
+        {name: 'Andy', time: 7000},
+        {name: 'Berta', time: 4000},
+        {name: 'Carl', time: 39000, active: true},
+    ];
+
+    render()
+    function render() {
+        const ul = document.querySelector('ul')
+        speakers.forEach(speaker => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${speaker.name}
+                <span>${speaker.time}</span>
+                <button>${speaker.active ? 'Stop!' : 'Start'}</button>
+            `;
+            li.querySelector('button').addEventListener('click', speaker.active ? stop : start);
+            ul.appendChild(li);
+
+            function start(){
+                console.log('start!')
+                clearInterval(id)
+                id  = setInterval(updateTimer, 1000);
+                delete speakers.find(speaker => speaker.active).active;
+                speaker.start = Date.now();
+                speaker.active = true;
+                render()
+            }
+
+            function stop(){
+                console.log('stop!')
+                const time = Date.now();
+                clearInterval(id);
+                render()
+            }
+
+            function updateTimer() {
+                const time = Date.now() - speaker.start - 1000 * 60 * 60
+                li.querySelector('span').innerText = new Date(time).toLocaleTimeString()
+            }
+        })
+    }
+
 </script>
 <hr>
 </body>
