@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Übung 6.1 – Klammerpaare</title>
-    <style>
-        blockquote {
-            border: 1px solid black;
-            border-radius: 3px;
-            width: 200px;
-            height: 200px;
-        }
-    </style>
+    <script src="script.js"></script>
 </head>
 <body>
 <h1>Übung 6.1 Klammerpaare</h1>
-<blockquote contenteditable="true">
-</blockquote>
+<label for="brackets">Please enter below your Code:</label><br>
+<textarea id="brackets" onkeyup="validateBrackets()" name="brackets" cols="40" rows="25">
+</textarea><br>
+<label for="brackets2">Please enter below your Code (<b>better solution</b>):</label><br>
+<textarea id="brackets2" onkeyup="validateBracketsBalanced()" name="brackets2" cols="40" rows="25">
+</textarea>
 
 </body>
 </html>
