@@ -1,5 +1,9 @@
-function validateBrackets() {
-    var input = document.getElementById('brackets').value;
+const input = document.getElementById('brackets')
+input.addEventListener('keyup', validateBrackets);
+
+function validateBrackets(event) {
+    var input = event.target.value;
+
     // SquareBracket = SB
     const counterSBLeft = (input.match(/\[/g) || []).length;
     const counterSBRight = (input.match(/]/g) || []).length;
@@ -18,15 +22,20 @@ function validateBrackets() {
         document.querySelector('textarea:focus').style.outline = 'none';
         document.querySelector('textarea:focus').style.border = '1px solid red';
         document.querySelector('textarea:focus').style.boxShadow = '0 0 10px #719ECE';
+        return false;
     } else {
         document.querySelector('textarea:focus').style.outline = 'none';
         document.querySelector('textarea:focus').style.border = '1px solid darkblue';
         document.querySelector('textarea:focus').style.boxShadow = 'none';
+        return true;
     }
 }
 
-function validateBracketsBalanced() {
-    var input = document.getElementById('brackets2').value;
+const input2 = document.getElementById('brackets2')
+input2.addEventListener('keyup', validateBracketsBalanced);
+
+function validateBracketsBalanced(event) {
+    var input = event.target.value;
     if (areBracketsBalanced(input.replace(/(\r\n|\n|\r)/gm, ""))) {
         document.querySelector('textarea:focus').style.outline = 'none';
         document.querySelector('textarea:focus').style.border = '1px solid darkblue';
