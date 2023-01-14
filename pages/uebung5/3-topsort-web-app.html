@@ -13,7 +13,9 @@
 <body>
 <h1>TopSort als Web-App</h1>
 <div>
-        <p>Fügen Sie bitte in der Tabelle beliebige Beziehungen ein, für die eine topologische Sortierung ausgegeben werden soll.</p>
+    <p>Fügen Sie bitte in der Tabelle beliebige Beziehungen ein, für die eine topologische Sortierung ausgegeben werden
+        soll.</p><br>
+    <button onclick="clearTable()" type="button">Zurücksetzen</button>
     <table>
         <thead>
         <tr>
@@ -28,7 +30,9 @@
         </tr>
         </tbody>
     </table>
-        <input type="submit">
+    <button onclick="addRow()" type="button">Add Row</button>
+    <button onclick="removeRow()" type="button">Delete Last Row</button>
+    <button onclick="display()" type="submit">Sort</button>
 </div>
 
 
