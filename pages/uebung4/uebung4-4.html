@@ -27,8 +27,7 @@
 <h1>Topologische Sortierung</h1>
 <p>Für diese Aufgabe rufen Sie bitte mit der Taste <u>F12</u> die Entwicklertools (DevTools) auf.</p>
 <p>Rufen Sie anschließend die Methode <code><span class="functions">topsort</span>(<span
-        class="integers">parameter</span>)</code> <em>auf, wobei der Parameter ein ganzzahliger Wert größer gleich 0
-    ist</em>.
+        class="integers">parameter</span>)</code> <em>auf, wobei der Parameter aus einem 2 dimensionalen Array besteht</em>.
 </p>
 <table>
     <tr>
@@ -36,24 +35,12 @@
         <th>Ausgabe</th>
     </tr>
     <tr>
-        <td><span class="functions">Leer</span>(<span class="integers">Leer</span>)</td>
-        <td><span class="output">Leer</span></td>
-    </tr>
-    <tr>
-        <td><span class="functions">Leer</span>(<span class="integers">Leer</span>)</td>
-        <td><span class="output">Leer</span></td>
-    </tr>
-    <tr>
-        <td><span class="functions">Leer</span>(<span class="integers">Leer</span>)</td>
-        <td><span class="output">Leer</span></td>
-    </tr>
-    <tr>
-        <td><span class="functions">Leer</span>(<span class="integers">Leer</span>)</td>
-        <td><span class="output">Leer</span></td>
-    </tr>
-    <tr>
-        <td><span class="functions">Leer</span>(<span class="integers">Leer</span>)</td>
-        <td><span class="output">Leer</span></td>
+        <td><span class="functions">topsort</span>(<span class="integers">[<br>
+        ["schlafen","studieren"],<br>
+        ["essen","studieren"],<br>
+        ["studieren","prüfen"]<br>
+    ]</span>)</td>
+        <td><span class="output">['essen', 'schlafen', 'studieren', 'prüfen']</span></td>
     </tr>
 </table>
 <hr>
