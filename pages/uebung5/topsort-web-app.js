@@ -43,3 +43,30 @@ function getTableData() {
     }
     return myArray;
 }
+
+function topSort() {
+    const tableData = getTableData();
+    return topsort(tableData)
+
+}
+
+function display() {
+    const topSortedArray = topSort();
+
+    const ul = document.createElement('ul')
+
+    let counter = 0;
+    topSortedArray.map((value) => {
+        const li = document.createElement('li')
+        const liArrow = document.createElement('li')
+        liArrow.innerHTML = `&#8594;`
+        li.innerHTML = value
+        ul.append(li)
+        if (counter < topSortedArray.length - 1) {
+            ul.append(liArrow)
+        }
+        counter++;
+    })
+
+    document.body.append(ul)
+}
