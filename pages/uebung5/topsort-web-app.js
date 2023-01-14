@@ -70,3 +70,24 @@ function display() {
 
     document.body.append(ul)
 }
+
+function clearTable() {
+    const tBody = document.body.querySelector('tbody')
+    if (tBody.rows.length === 1) {
+        tBody.rows[0].cells[0].innerHTML = ''
+        tBody.rows[0].cells[1].innerHTML = ''
+    } else {
+        for (let i = tBody.rows.length; i > 1; i--) {
+            if (tBody.rows.length === i) {
+                tBody.rows[0].cells[0].innerHTML = ''
+                tBody.rows[0].cells[1].innerHTML = ''
+            }
+            tBody.deleteRow(i - 1)
+        }
+    }
+
+    const ulAll = document.body.querySelectorAll('ul')
+    ulAll.forEach((ul) => {
+        ul.remove();
+    })
+}
