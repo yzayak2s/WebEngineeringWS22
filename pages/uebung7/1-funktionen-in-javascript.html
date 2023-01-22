@@ -22,6 +22,18 @@
     function add(a, b) {
         return a + b;
     }
+
+    /**
+     * nimmt ein Argument als Parameter an und gibt eine Funktion
+     * zurück, die dieses Argument zurückgibt.
+     * @param argument
+     * @return {*}
+     */
+    function identity_function(argument) {
+        return function () {
+            return argument;
+        };
+    }
 </script>
 
 </body>
