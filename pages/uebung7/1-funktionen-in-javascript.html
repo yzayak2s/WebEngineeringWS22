@@ -200,6 +200,30 @@
     console.assert(add_once(3, 4) === 7);
     console.assert(add_once(3, 4) !== 7);
     // console.assert(add_once(3, 4) === Error);
+
+    /**
+     * Schreiben Sie eine Fabrik-Funktion counterf, die zwei
+     * Funktionen inc und dec berechnet, die einen Zähler
+     * hoch- und herunterzählen. Also z.B.
+     *      counter = counterf(10). Dann soll
+     *      counter.inc() genau 11 und
+     *      counter.dec() wieder 10 ergeben.
+     *
+     */
+    function counterf(count) {
+        return {
+            inc: function() {
+                return ++count;
+            },
+            dec: function () {
+                return --count;
+            }
+        }
+    }
+
+    const counter = counterf(10)
+    console.assert(counter.inc() === 11)
+    console.assert(counter.dec() === 10)
 </script>
 
 </body>
