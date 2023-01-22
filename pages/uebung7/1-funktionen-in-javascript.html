@@ -90,6 +90,23 @@
     console.assert(inc(3) === 4)
     inc = curry(add, 1)
     console.assert(inc(20) === 21)
+
+    /**
+     * Schreiben Sie ein Funktion methodize, die eine binäre Funktion
+     * (z.B. add oder mul) in eine unäre Methode verwandelt. Nach
+     * Number.prototype.add = methodize(add) soll (3).add(4) genau
+     * 7 ergeben.
+     *
+     * Reference: https://jsfiddle.net/daronwolff/o9u39hmr/
+     */
+    function methodize(operation) {
+        return function (y) {
+            return operation(this, y);
+        }
+    }
+
+    Number.prototype.add = methodize(add);
+    console.assert((3).add(4) === 7);
 </script>
 
 </body>
