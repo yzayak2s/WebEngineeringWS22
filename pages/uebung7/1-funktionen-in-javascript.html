@@ -224,6 +224,35 @@
     const counter = counterf(10)
     console.assert(counter.inc() === 11)
     console.assert(counter.dec() === 10)
+
+    /**
+     * Schreiben Sie eine rücknehmbare Funktion revocable,
+     * die als Parameter eine Funktion nimmt und diese bei
+     * Aufruf ausführt. Sobald die Funktion aber mit revoke()
+     * zurückgenommen wurde, führt ein erneuter Aufruf zu
+     * einem Fehler. Also z.B.
+     *      temp = revocable(alert);
+     *      temp.invoke(7); // führt zu alert(7);
+     *      temp.revoke();
+     *      temp.invoke(8); // Fehlerabbruch!
+     */
+    function revocable(operation) {
+        return {
+            invoke: function (x) {
+                return operation(x);
+            },
+            // TODO: revoke()-Methode noch nicht richtig implementiert
+            revoke: function () {
+                console.log('Trying to revoke invoked function')
+                return once(operation);
+            }
+        }
+    }
+
+    const temp = revocable(alert);
+    temp.invoke(7);
+    temp.revoke();
+    temp.invoke(8);
 </script>
 
 </body>
