@@ -107,6 +107,21 @@
 
     Number.prototype.add = methodize(add);
     console.assert((3).add(4) === 7);
+
+    /**
+     * Schreiben Sie eine Funktion demethodize, die eine unäre Methode
+     * (z.B. add oder mul) in eine binäre Funktion umwandelt.
+     * demethodize(Number.prototype.add)(5,6) soll 11 ergeben.
+     *
+     * Reference: https://jsfiddle.net/daronwolff/o9u39hmr/
+     */
+    function demethodize(operation) {
+        return function (x, y) {
+            return operation.call(x, y);
+        }
+    }
+
+    console.assert(demethodize(Number.prototype.add)(5, 6) === 11)
 </script>
 
 </body>
