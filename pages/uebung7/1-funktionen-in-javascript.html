@@ -61,6 +61,19 @@
             }
         }
     }
+
+    /**
+     * Curry-Funktion nimmt eine binäre Funktion und ein Argument an,
+     * um daraus eine Funktion zu erzeugen, die ein zweites Argument
+     * entgegennimmt.
+     * Beispiel: add3 = curry(add, 3); add3(4) ergibt 7 und
+     *           curry(mul, 5)(6) ergibt 30
+     */
+    function curry(operation, x) {
+        return function (y) {
+            return operation(x, y);
+        }
+    }
 </script>
 
 </body>
