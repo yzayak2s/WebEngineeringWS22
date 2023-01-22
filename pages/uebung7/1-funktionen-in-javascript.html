@@ -45,6 +45,22 @@
             return x + y;
         };
     }
+
+    /**
+     * Apply-Funktion 'applyf()' berechnet aus einer binären Funktion
+     * wie add(x,y) eine Funktion addf, die mit zwei Aufrufen
+     * das gleiche Ergebnis liefert, z.B. addf = applyf(add);
+     * addf(x)(y) soll add(x,y) liefern.
+     * Entsprechend applyf(mul)(5)(6) soll 30 liefern, wenn
+     * mul die binäre Multiplikation ist.
+     */
+    function applyf(operation) {
+        return function (x) {
+            return function (y) {
+                return operation(x, y);
+            }
+        }
+    }
 </script>
 
 </body>
