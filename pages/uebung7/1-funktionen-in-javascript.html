@@ -253,6 +253,27 @@
     temp.invoke(7);
     temp.revoke();
     temp.invoke(8);
+
+    /**
+     * Schreiben Sie ein "Array Wrapper"-Objekt mit den Methoden
+     *      get,
+     *      store und
+     *      append,
+     * sodass ein Angreifer keinen Zugriff auf das innere, private Array hat.
+     * Also z.B.:
+     *      my_vector = vector();
+     *      my_vector.append(7);
+     *      my_vector.store(1, 8);
+     *      my_vector.get(0); // 7
+     *      my_vector.get(1); // 8
+     */
+    var _Array = function () {};
+
+    _Array.prototype = Object.create(Array.prototype);
+    _Array.prototype.get = _Array
+    _Array.prototype.store = _Array
+    _Array.prototype.append = _Array
+    console.log(_Array.prototype)
 </script>
 
 </body>
