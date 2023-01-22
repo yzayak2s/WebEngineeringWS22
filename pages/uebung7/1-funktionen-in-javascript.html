@@ -74,6 +74,22 @@
             return operation(x, y);
         }
     }
+
+    /**
+     * Erzeugen Sie die Inc-Funktion mithilfe einer der Funktionen
+     * addf, applyf und curry aus den letzten Aufgaben, ohne die
+     * Funktion inc selbst zu implementieren. inc(x) soll immer
+     * x + 1 zurückgeben und lässt sich natürlich auch direkt
+     * implementieren. Das ist aber hier nicht die Aufgabe.
+     * Vielleicht schaffen Sie es, drei Varianten der
+     * inc-implementierung zu schreiben?
+     */
+    let inc = addf(1)
+    console.assert(inc(99) === 100)
+    inc = applyf(add)(1);
+    console.assert(inc(3) === 4)
+    inc = curry(add, 1)
+    console.assert(inc(20) === 21)
 </script>
 
 </body>
