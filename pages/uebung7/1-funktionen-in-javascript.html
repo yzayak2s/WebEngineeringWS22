@@ -156,6 +156,20 @@
     }
 
     console.assert(composeu(double, square)(3) === 36)
+
+    /**
+     * Schreiben Sie eine Funktion composeb, die zwei binäre Funktionen
+     * in eine einzelne Funktion transformiert, die beide nacheinander
+     * aufruft. Also z.B.
+     *      composeb(add, mul)(2, 3, 5) soll 25 ergeben
+     */
+    function composeb(operation1, operation2) {
+        return function (x, y, z) {
+            return operation2(operation1(x, y), z);
+        }
+    }
+
+    console.assert(composeb(add, mul)(2, 3, 5) === 25)
 </script>
 
 </body>
