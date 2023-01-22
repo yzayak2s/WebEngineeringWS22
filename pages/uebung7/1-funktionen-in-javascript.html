@@ -34,6 +34,17 @@
             return argument;
         };
     }
+
+    /**
+     * Addier-Funktion 'addf()', so dass addf(x)(y) genau x + y
+     * zurück gibt. (Es haben also 2 Funktionsaufrufe zu erfolgen.
+     * addf(x) liefert eine Funktion, die auf y angewandt wird.)
+     */
+    function addf(x) {
+        return function (y) {
+            return x + y;
+        };
+    }
 </script>
 
 </body>
