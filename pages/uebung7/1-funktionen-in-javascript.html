@@ -170,6 +170,36 @@
     }
 
     console.assert(composeb(add, mul)(2, 3, 5) === 25)
+
+    /**
+     * Schreiben Sie eine Funktion once, die einer anderen Funktion
+     * nur einmal erlaubt, aufgerufen zu werden. Also z.B.
+     *      add_once = once(add);
+     *      add_once(3, 4) soll beim ersten Mal 7 ergeben,
+     *      beim zweiten Mal soll jedoch
+     *      add_once(3, 4) einen Fehlerabbruch bewirken.
+     *
+     *  Reference: https://stackoverflow.com/questions/12713564/function-in-javascript-that-can-be-called-only-once/12713611#12713611
+     */
+    function once(operation, context) {
+        var result;
+        var executedOperation;
+
+        return function () {
+            if (operation) {
+                result = operation.apply(context || this, arguments);
+                executedOperation = operation;
+                operation = null;
+                return result;
+            }
+            throw new Error(`Fehlerabbruch. Die Funktion '${executedOperation.name}' wurde bereits genau einmal ausgeführt worden!`);
+        }
+    }
+
+    var add_once = once(add);
+    console.assert(add_once(3, 4) === 7);
+    console.assert(add_once(3, 4) !== 7);
+    // console.assert(add_once(3, 4) === Error);
 </script>
 
 </body>
