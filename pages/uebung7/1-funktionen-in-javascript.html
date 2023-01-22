@@ -142,6 +142,20 @@
     console.assert(double(11) === 22)
     var square = twice(mul);
     console.assert(square(11) === 121)
+
+    /**
+     * Schreiben Sie eine Funktion composeu, die zwei unäre Funktionen
+     * in eine einzelne unäre Funktion transformiert, die beide
+     * nacheinander aufruft. Also z.B. soll
+     *      composeu(double, square)(3) genau 36 ergeben
+     */
+    function composeu(operation1, operation2) {
+        return function (x) {
+            return operation2(operation1(x));
+        }
+    }
+
+    console.assert(composeu(double, square)(3) === 36)
 </script>
 
 </body>
