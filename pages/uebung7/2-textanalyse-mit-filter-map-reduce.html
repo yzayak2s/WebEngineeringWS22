@@ -14,6 +14,9 @@
                 // remove all line breaks, commas, dots, hyphens, braces and filtered white spaces out
                 // Reference for regEx: https://regex101.com/
                 const words = responseWithoutHTML.toLowerCase().replaceAll(/["().,-]|\n/gm, '').split(' ').filter((value) => value !== '')
+
+                // Reference: https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array/41169035#41169035
+                const filteredWords = words.filter((word) => !STOPWORDS.includes(word))
             });
 
         /**
