@@ -54,6 +54,36 @@ button:active {
     background-color: #e1dcda;
 }
 
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 20% 55% 25%;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+                "nav div aside";
+}
+
+.main-div-button {
+    display: grid;
+    justify-content: start;
+    justify-items: start;
+    padding: 7px;
+}
+
+.nav-main {
+    grid-area: nav;
+}
+
+.div-main {
+    grid-area: div;
+    background-color: #95d1f3;
+    text-align: start;
+}
+
+.aside-main {
+    grid-area: aside;
+}
+
 ul {
     list-style: none;
     display: flex;
