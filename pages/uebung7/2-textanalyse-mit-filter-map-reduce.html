@@ -10,6 +10,7 @@
             .then((response) => response.text())
             .then((responseWithHTML) => removeHTML(responseWithHTML))
             .then((responseWithoutHTML) => {
+                let wordCounts = {};
 
                 // remove all line breaks, commas, dots, hyphens, braces and filtered white spaces out
                 // Reference for regEx: https://regex101.com/
@@ -17,6 +18,12 @@
 
                 // Reference: https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array/41169035#41169035
                 const filteredWords = words.filter((word) => !STOPWORDS.includes(word))
+
+                // Count most common words in string
+                // Reference: https://stackoverflow.com/questions/6565333/using-javascript-to-find-most-common-words-in-string/6565353#6565353
+                for(let i = 0; i < filteredWords.length; i++) {
+                    wordCounts[filteredWords[i]] = (wordCounts[filteredWords[i]] || 0) + 1;
+                }
             });
 
         /**
