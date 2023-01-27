@@ -54,6 +54,42 @@ button:active {
     background-color: #e1dcda;
 }
 
-header li {
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul {
+    padding: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+li {
+    text-decoration: underline;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+header li,
+footer li {
     padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #000000;
+    color: #ffffff;
+    bottom: 0;
+    position: sticky;
+}
+
+.nav-footer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
