@@ -8,7 +8,13 @@
 
         fetch('https://kaul.inf.h-brs.de/ccm/we/ws22/resources/assets/Plagiatsresolution.html')
             .then((response) => response.text())
-            .then((responseWithHTML) => removeHTML(responseWithHTML));
+            .then((responseWithHTML) => removeHTML(responseWithHTML))
+            .then((responseWithoutHTML) => {
+
+                // remove all line breaks, commas, dots, hyphens, braces and filtered white spaces out
+                // Reference for regEx: https://regex101.com/
+                const words = responseWithoutHTML.toLowerCase().replaceAll(/["().,-]|\n/gm, '').split(' ').filter((value) => value !== '')
+            });
 
         /**
          * @author
