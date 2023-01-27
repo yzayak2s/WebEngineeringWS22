@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    color: #ffffff;
+}
+
+body {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 1fr 1fr 65% 2fr;
+    grid-template-areas:
+                "header header header"
+                "h1 h1 h1"
+                "main main main"
+                "footer footer footer";
+    background-color: #c28282;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    grid-area: header;
+    background-color: #c24f4f;
+    position: sticky;
+    top: 0;
+}
+
+.header-div-button {
+
+}
+
+header nav {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+button {
+    border-radius: 13px;
+    border-color: gainsboro;
+    background-color: #6a709f;
+    font-weight: bold;
+}
+
+button:active {
+    background-color: #e1dcda;
+}
+
+header li {
+    padding: 1rem;
+}
