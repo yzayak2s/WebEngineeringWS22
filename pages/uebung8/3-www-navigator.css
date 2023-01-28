@@ -50,7 +50,11 @@ button {
     font-weight: bold;
 }
 
-button:active {
+button:hover {
+    cursor: pointer;
+}
+
+.active {
     background-color: #e1dcda;
 }
 
