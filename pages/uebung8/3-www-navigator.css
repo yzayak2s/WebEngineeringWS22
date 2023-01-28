@@ -12,10 +12,9 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 1fr 1fr 65% 2fr;
+    grid-template-rows: 1fr 80% 1fr;
     grid-template-areas:
                 "header header header"
-                "h1 h1 h1"
                 "main main main"
                 "footer footer footer";
     background-color: #c28282;
@@ -48,6 +47,7 @@ button {
     border-color: gainsboro;
     background-color: #6a709f;
     font-weight: bold;
+    margin: 2px
 }
 
 button:hover {
@@ -80,6 +80,7 @@ main {
 
 .div-main {
     grid-area: div;
+    padding: 9px;
     background-color: #95d1f3;
     text-align: start;
 }
