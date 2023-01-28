@@ -7,6 +7,23 @@
     <script type="module" src="script.js"></script>
     <script type="module" src="./fetchContent.js"></script>
 </head>
+<script type="module">
+    import {CONTENT} from "./fetchContent.js";
+
+    const content = CONTENT['html']['headings']['content']
+    const references = CONTENT['html']['headings']['references']
+    const p = document.createElement('p')
+    const aAside = document.createElement('a')
+    p.setAttribute('class', 'p-main-content')
+    aAside.setAttribute('class', 'a-aside');
+    aAside.setAttribute('href', references[0]);
+    p.innerHTML = content;
+    aAside.innerHTML = references[0].split('/').slice(-1)[0];
+    const divMain = document.body.querySelector('.div-main')
+    const asideMain = document.querySelector('.aside-main');
+    divMain.append(p)
+    asideMain.append(aAside);
+</script>
 <body>
 <header>
     <h1>WWW-Navigator</h1>
@@ -15,7 +32,9 @@
             <button class="header-nav-button">HTML</button>
             <button class="header-nav-button">CSS</button>
             <button class="header-nav-button">JavaScript</button>
-            <button class="header-nav-button">Other</button>
+            <button class="header-nav-button">DOM</button>
+            <button class="header-nav-button">ECMAScript</button>
+            <button class="header-nav-button">Async JS</button>
             <button onclick="history.back()">Zurück</button>
         </div>
     </nav>
@@ -30,8 +49,10 @@
             <button class="main-nav-button">class</button>
         </div>
     </nav>
-    <div class="div-main"><p>some content</p></div>
-    <aside class="aside-main"></aside>
+    <div class="div-main"></div>
+    <aside class="aside-main">
+        <p>Additional Information: Links to external resources</p>
+    </aside>
 </main>
 
 <footer>
