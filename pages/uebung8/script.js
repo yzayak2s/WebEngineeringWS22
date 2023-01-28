@@ -1,5 +1,7 @@
 // Keep clicked button highlighted
 // Reference: https://stackoverflow.com/questions/68347721/how-do-i-keep-a-clicked-navigation-button-highlighted-in-css/68348062#68348062
+import {CONTENT} from "./fetchContent.js";
+
 let elements = document.querySelectorAll('.header-nav-button')
 
 elements.forEach(el => {
