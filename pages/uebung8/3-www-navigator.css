@@ -87,6 +87,7 @@ main {
 
 .aside-main {
     grid-area: aside;
+    color: white;
 }
 
 ul {
