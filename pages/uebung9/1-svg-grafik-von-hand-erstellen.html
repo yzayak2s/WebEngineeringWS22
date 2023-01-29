@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <title>9.1 SVG Grafik von Hand erstellen</title>
     <style>
-        p {
-            margin: 0;
-            color: white;
-            border-bottom: 3px solid white;
-            padding: 5px
+        .svgStyle {
+            transition: 0.5s;
         }
-        .second-approach {
-            padding: 15px;
-            font-family: Arial,serif;
+
+        svg:hover {
+            /* viewBox: 0 0 540 600; */
+            width: 540px;
+            height: 600px;
         }
     </style>
 </head>
@@ -20,8 +19,21 @@
 <h1>9.1 SVG Grafik von Hand erstellen</h1>
 <button onclick="history.back()">Zurück</button>
 <h2>SVG Use The Platform</h2>
-<svg viewBox="0 0 270 300" width="270px" height="300px">
-    <rect width="100%" height="100%" fill="#cb798d" />
+<svg viewBox="0 0 270 300" width="270px" height="300px" class="svgStyle">
+    <style>
+        p {
+            margin: 0;
+            color: white;
+            border-bottom: 3px solid white;
+            padding: 5px
+        }
+
+        .second-approach {
+            padding: 15px;
+            font-family: Arial, serif;
+        }
+    </style>
+    <rect width="100%" height="100%" fill="#cb798d"/>
     <foreignObject class="second-approach" width="100%" height="100%" font-size="60">
         <p>Use</p>
         <p>The</p>
