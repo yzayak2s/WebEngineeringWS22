@@ -25,6 +25,8 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "babelify": "^10.0.0",
+    "cors": "^2.8.5",
+    "highcharts": "^10.3.3",
     "stopwords-de": "^0.3.0"
   }
 }
