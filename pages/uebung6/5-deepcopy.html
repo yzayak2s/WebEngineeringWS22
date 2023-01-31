@@ -71,6 +71,18 @@
         // return typeof object === "object";
         return object.constructor === Object;
     }
+
+    const deepCopyArray = (object) => {
+        return isArray(object) ? object.map((value) => value) : void(0);
+    }
+    console.assert(EXAMPLEDATA2.length === deepCopyArray(EXAMPLEDATA2).length && EXAMPLEDATA2.every((element, index) =>element === deepCopyArray(EXAMPLEDATA2)[index]))
+
+    // Reference: https://medium.com/nerd-for-tech/create-shallow-and-deep-copy-without-using-any-third-party-library-in-js-3c761cb56762/#b451
+    const deepCopyObject = (object) => {
+        let copy = {}
+        const copiedObject = isObject(object) ? Object.keys(object).forEach((key) => object.hasOwnProperty(key) ? copy[key] = deepCopyObject(object[key]) : void(0)) : copy;
+        return copy
+    }
 </script>
 </body>
 </html>
