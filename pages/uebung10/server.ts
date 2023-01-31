@@ -53,6 +53,16 @@ const handler = async (): Promise<Response> => {
     return csvtojson().fromString(csvData);
 };
 
+const calculate = (arr: number[]): {} => {
+    const sum = arr.reduce((a: number,b: number) => a + b)
+    return {
+        max: Math.max(...arr),
+        min: Math.min(...arr),
+        sum: sum,
+        avg: sum / arr.length
+    }
+}
+
 
 
 console.log("Listening on http://localhost:8000");
