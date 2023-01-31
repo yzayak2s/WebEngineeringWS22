@@ -10,11 +10,32 @@
     Promise.all([
         fetch('A.txt')
             .then(response => response.text()),
-    fetch('B.txt')
-        .then(response => response.text())
-    ]).then(results => results.join('\n').replaceAll('/n', '<br>')).then( console.log)
+        fetch('B.txt')
+            .then(response => response.text())
+    ]).then(results => {
+        // removed line breaks and split names
+        const temp = results.map((value) => value.replaceAll(/\n/gm, ' ').split(' '))
+
+        let concatenatedArray = []
+        for (let i = 0; i < temp[0].length; i++) {
+            concatenatedArray.push(temp[0][i] + ' ' + temp[1][i])
+        }
+
+        const ul = document.createElement('ul')
+
+        concatenatedArray.map((value) => {
+            const li = document.createElement('li')
+            li.innerHTML = value
+            ul.append(li)
+        })
+        document.body.append(ul)
+        return concatenatedArray
+    })
+        .then(console.log)
     console.log('!!!')
 </script>
 
 </body>
+<button onclick="history.back()">Zurück</button>
+<h1>Übung 8.1 – Promises</h1>
 </html>

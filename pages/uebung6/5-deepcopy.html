@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 6.5 – DeepCopy</title>
+</head>
+<body>
+<button onclick="history.back()">Zurück</button>
+<h1>Übung 6.5 DeepCopy</h1>
+<script>
+    // Reference: https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript/#122704
+    const EXAMPLEDATA = {
+        name: "Kingsley",
+        age: 28,
+        array: [28, 99, 199],
+        job: "Web Developer",
+        incrementAge: function () {
+            this.age++
+        },
+        obj: {
+            first: 'One',
+            last: 9
+        }
+    }
+
+    const EXAMPLEDATA2 = [
+        [
+            "name",
+            "Kingsley"
+        ],
+        [
+            "age",
+            28
+        ],
+        [
+            "array",
+            [
+                28,
+                99,
+                199
+            ]
+        ],
+        [
+            "job",
+            "Web Developer"
+        ],
+        [
+            "incrementAge",
+            null
+        ],
+        [
+            "obj",
+            {
+                "first": "One",
+                "last": 9
+            }
+        ]
+    ]
+
+    // Vorgehen:
+    //      - Prüfe zuerst, ob Objekt ein Array ist
+    //          -> Array.isArray(value)
+    //      - Prüfe zunächst, ob Objekt kein Array aber vom Typ 'object' ist
+    //          -> !Array.isArray(value) && typeof value == "object"
+    const isArray = (object) => {
+        // return object.constructor === Array;
+        return Array.isArray(object);
+    }
+
+    const isObject = (object) => {
+        // return typeof object === "object";
+        return object.constructor === Object;
+    }
+
+    const deepCopyArray = (object) => {
+        return isArray(object) ? object.map((value) => value) : void(0);
+    }
+    console.assert(EXAMPLEDATA2.length === deepCopyArray(EXAMPLEDATA2).length && EXAMPLEDATA2.every((element, index) =>element === deepCopyArray(EXAMPLEDATA2)[index]))
+
+    // Reference: https://medium.com/nerd-for-tech/create-shallow-and-deep-copy-without-using-any-third-party-library-in-js-3c761cb56762/#b451
+    const deepCopyObject = (object) => {
+        let copy = {}
+        const copiedObject = isObject(object) ? Object.keys(object).forEach((key) => object.hasOwnProperty(key) ? copy[key] = deepCopyObject(object[key]) : void(0)) : copy;
+        return copy
+    }
+</script>
+</body>
+</html>

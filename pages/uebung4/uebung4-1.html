@@ -15,9 +15,7 @@
 <p>Öffnen Sie die DevTools-Konsole und geben Sie folgende Funktionen ein:</p>
 <ul>
     <li><b>Beispiel 1:</b><br> <code><span class="functions">identity</span>(<span style="color:blue;">4</span>)</code></li>
-    <br>
     <li><b>Beispiel 2:</b><br> <code><span class="functions">identity</span>(<span style="color:green;">"Hallo"</span>)</code></li>
-    <br>
     <li><code><span class="functions">identity</span>(parameter)</code></li>
     <li><code><span class="functions">identity_function</span>(parameter)</code></li>
     <li><code><span class="functions">add</span>(parameter, parameter)</code></li>
@@ -34,12 +32,12 @@
 
     /**
      * nimmt ein Argument als Parameter an und gibt eine Funktion
-     * (hier identity()) zurück, die dieses Argument zurückgibt.
+     * zurück, die dieses Argument zurückgibt.
      * @param argument
      * @return {*}
      */
     function identity_function(argument) {
-        return identity(argument);
+        return function() {return argument};
     }
 
     /**

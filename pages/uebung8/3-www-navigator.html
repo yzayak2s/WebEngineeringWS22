@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 8.2 und 8.3 – WWW-Navigator</title>
+    <link rel="stylesheet" href="3-www-navigator.css">
+    <script type="module" src="script.js"></script>
+    <script type="module" src="./fetchContent.js"></script>
+</head>
+<script type="module">
+    import {CONTENT} from "./fetchContent.js";
+
+    const content = CONTENT['html']['headings']['content']
+    const references = CONTENT['html']['headings']['references']
+    const p = document.createElement('p')
+    const aAside = document.createElement('a')
+    p.setAttribute('class', 'p-main-content')
+    aAside.setAttribute('class', 'a-aside');
+    aAside.setAttribute('href', references[0]);
+    p.innerHTML = content;
+    aAside.innerHTML = references[0].split('/').slice(-1)[0];
+    const divMain = document.body.querySelector('.div-main')
+    const asideMain = document.querySelector('.aside-main');
+    divMain.append(p)
+    asideMain.append(aAside);
+</script>
+<body>
+<header>
+    <h1>WWW-Navigator</h1>
+    <nav>
+        <div class="header-div-button">
+            <button class="header-nav-button active">HTML</button>
+            <button class="header-nav-button">CSS</button>
+            <button class="header-nav-button">JavaScript</button>
+            <button class="header-nav-button">DOM</button>
+            <button class="header-nav-button">ECMAScript</button>
+            <button class="header-nav-button">Async JS</button>
+            <button onclick="history.back()">Zurück</button>
+        </div>
+    </nav>
+</header>
+<main>
+    <nav class="nav-main">
+        <div class="main-div-button">
+            <button class="main-nav-button active">Headings</button>
+            <button class="main-nav-button">Paragraph</button>
+        </div>
+    </nav>
+    <div class="div-main"></div>
+    <aside class="aside-main">
+        <p>Additional Information: Links to external resources</p>
+    </aside>
+</main>
+
+<footer>
+    <nav class="nav-footer">
+        <h2>Footer:</h2>
+        <ul>
+            <li>Sitemap</li>
+            <li>Home</li>
+            <li>News</li>
+            <li>Contact</li>
+            <li>About</li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>
