@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 6.5 – DeepCopy</title>
+</head>
+<body>
+<button onclick="history.back()">Zurück</button>
+<h1>Übung 6.5 DeepCopy</h1>
+<script>
+    // Reference: https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript/#122704
+    const EXAMPLEDATA = {
+        name: "Kingsley",
+        age: 28,
+        array: [28, 99, 199],
+        job: "Web Developer",
+        incrementAge: function () {
+            this.age++
+        },
+        obj: {
+            first: 'One',
+            last: 9
+        }
+    }
+
+    const EXAMPLEDATA2 = [
+        [
+            "name",
+            "Kingsley"
+        ],
+        [
+            "age",
+            28
+        ],
+        [
+            "array",
+            [
+                28,
+                99,
+                199
+            ]
+        ],
+        [
+            "job",
+            "Web Developer"
+        ],
+        [
+            "incrementAge",
+            null
+        ],
+        [
+            "obj",
+            {
+                "first": "One",
+                "last": 9
+            }
+        ]
+    ]
+
+    // Vorgehen:
+    //      - Prüfe zuerst, ob Objekt ein Array ist
+    //          -> Array.isArray(value)
+    //      - Prüfe zunächst, ob Objekt kein Array aber vom Typ 'object' ist
+    //          -> !Array.isArray(value) && typeof value == "object"
+    const isArray = (object) => {
+        // return object.constructor === Array;
+        return Array.isArray(object);
+    }
+
+    const isObject = (object) => {
+        // return typeof object === "object";
+        return object.constructor === Object;
+    }
+</script>
+</body>
+</html>
