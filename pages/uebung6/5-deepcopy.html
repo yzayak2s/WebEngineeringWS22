@@ -72,8 +72,20 @@
         return object.constructor === Object;
     }
 
+    // Reference
+    const deepCopy = (object) => {
+        return isArray(object) ?
+            object.map((value) => value) :
+            isObject(object) ?
+                Object.entries(object) : void(0) ;
+    }
+    console.log(deepCopy(EXAMPLEDATA))
+    console.log(deepCopy(EXAMPLEDATA2))
+    console.log(deepCopy('String'))
+    // console.log(Object.entries(EXAMPLEDATA.array))
+
     const deepCopyArray = (object) => {
-        return isArray(object) ? object.map((value) => value) : void(0);
+        return isArray(object) ? object.map((value) => value) : false;
     }
     console.assert(EXAMPLEDATA2.length === deepCopyArray(EXAMPLEDATA2).length && EXAMPLEDATA2.every((element, index) =>element === deepCopyArray(EXAMPLEDATA2)[index]))
 
@@ -83,6 +95,9 @@
         const copiedObject = isObject(object) ? Object.keys(object).forEach((key) => object.hasOwnProperty(key) ? copy[key] = deepCopyObject(object[key]) : void(0)) : copy;
         return copy
     }
+    console.log(deepCopyObject(EXAMPLEDATA))
+    // console.log(Object.keys(EXAMPLEDATA).forEach((key)=> EXAMPLEDATA.hasOwnProperty(key) ? EXAMPLEDATA[key] : void(0)))
+    // console.log(Object.keys(EXAMPLEDATA).forEach((key) => (EXAMPLEDATA.hasOwnProperty(key)) ? console.log(EXAMPLEDATA[key]) : 'FALSE'))
 </script>
 </body>
 </html>
