@@ -3,10 +3,8 @@ function addRow() {
 
     const row = table.insertRow(-1)
 
-    row.setAttribute('contenteditable', true)
-
-    row.insertCell(0);
-    row.insertCell(1);
+    row.insertCell(0).setAttribute('contenteditable', true);
+    row.insertCell(1).setAttribute('contenteditable', true);
 
     document.createElement('td')
 }
@@ -46,8 +44,11 @@ function getTableData() {
 
 function topSort() {
     const tableData = getTableData();
-    return topsort(tableData)
-
+    try {
+        return topsort(tableData)
+    } catch (e) {
+        return alert(`Ihre Beziehungen enthalten einen Zyklus! ${e.message}`)
+    }
 }
 
 function display() {
@@ -56,7 +57,7 @@ function display() {
     const ul = document.createElement('ul')
 
     let counter = 0;
-    topSortedArray.map((value) => {
+    topSortedArray && topSortedArray.map((value) => {
         const li = document.createElement('li')
         const liArrow = document.createElement('li')
         liArrow.innerHTML = `&#8594;`

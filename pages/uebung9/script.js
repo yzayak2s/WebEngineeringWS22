@@ -4,11 +4,17 @@
 fetch('COVID-19-Faelle_7-Tage-Inzidenz_Deutschland.json')
     .then((value) => value.json())
     .then((data) => {
+        // console.log(Object.entries(data).slice(0,5))
+        const convertedData = [];
+        Object.entries(data).slice(0,5).map(([key,value]) => {
+            convertedData.push({
+                name: key,
+                data: value
+            })
+        })
+        console.log(convertedData)
 
         Highcharts.chart('container', {
-            chart: {
-                type: 'bar'
-            },
             title: {
                 text: '7-Tage-Inzidenz der COVID-19-Fälle in Deutschland',
                 align: 'left'
@@ -20,10 +26,7 @@ fetch('COVID-19-Faelle_7-Tage-Inzidenz_Deutschland.json')
                 align: 'left'
             },
             xAxis: {
-                categories: ['Meldedatum', 'Altersgruppe', 'Bevoelkerung', 'Faelle_gesamt', 'Faelle_neu', 'Faelle_7', 'Inzidenz_7'],
-                title: {
-                    text: null
-                }
+                type: 'datetime'
             },
             yAxis: {
                 min: 0,
@@ -38,13 +41,13 @@ fetch('COVID-19-Faelle_7-Tage-Inzidenz_Deutschland.json')
             tooltip: {
                 valueSuffix: ' millions'
             },
-            plotOptions: {
+            /*plotOptions: {
                 bar: {
                     dataLabels: {
                         enabled: true
                     }
                 }
-            },
+            },*/
             legend: {
                 layout: 'vertical',
                 align: 'right',
@@ -57,27 +60,12 @@ fetch('COVID-19-Faelle_7-Tage-Inzidenz_Deutschland.json')
                     Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
                 shadow: true
             },
-            credits: {
-                enabled: false
-            },
-            series: [{
-                name: 'Year 1990',
-                data: [631, 727, 3202, 721, 26]
-            }, {
-                name: 'Year 2000',
-                data: [814, 841, 3714, 726, 31]
-            }, {
-                name: 'Year 2010',
-                data: [1044, 944, 4170, 735, 40]
-            }, {
-                name: 'Year 2018',
-                data: [1276, 1007, 4561, 746, 42]
-            }]
+            series: convertedData
         });
     })
 
 
-
+// Reference: Live-Coding
 const xml = fetch( '../../resource/Realisierte_Erzeugung_202211010000_202211112359.xml' )
     .then( response => response.text() )
     .then( str => new DOMParser().parseFromString( str, 'text/xml' ) )
