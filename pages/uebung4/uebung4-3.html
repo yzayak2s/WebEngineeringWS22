@@ -77,6 +77,7 @@
     }*/
 
     // TODO: Ist die Performance hier gewährleistet?
+    // Reference: https://v8.dev/features/bigint#api
     function fibonacciRekHelpBigInt(a, b, i, n) {
         try {
             return BigInt(i) === BigInt(n) ? BigInt(b) : fibonacciRekHelpBigInt(BigInt(b), BigInt(a) + BigInt(b), BigInt(i) + BigInt(1), BigInt(n));
@@ -85,7 +86,7 @@
                 // console.log("Error", error.stack)
                 console.log("Error", error.name)
                 console.log("Error", error.message)
-                console.log('Highest fibonacci number that is representable in bigint: ' + (i + 1))
+                console.log('Highest fibonacci number that is representable in bigint: ' + (BigInt(i) + BigInt(1)))
             }
         }
     }
