@@ -3,10 +3,8 @@ function addRow() {
 
     const row = table.insertRow(-1)
 
-    row.setAttribute('contenteditable', true)
-
-    row.insertCell(0);
-    row.insertCell(1);
+    row.insertCell(0).setAttribute('contenteditable', true);
+    row.insertCell(1).setAttribute('contenteditable', true);
 
     document.createElement('td')
 }
