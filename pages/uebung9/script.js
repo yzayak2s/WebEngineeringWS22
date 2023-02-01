@@ -77,7 +77,7 @@ fetch('COVID-19-Faelle_7-Tage-Inzidenz_Deutschland.json')
     })
 
 
-
+// Reference: Live-Coding
 const xml = fetch( '../../resource/Realisierte_Erzeugung_202211010000_202211112359.xml' )
     .then( response => response.text() )
     .then( str => new DOMParser().parseFromString( str, 'text/xml' ) )
